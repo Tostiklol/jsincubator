@@ -3,9 +3,9 @@
 
 // your code
 let sum = 0;
-let i = 1;
+let a = 1;
 
-while (i <= 20) {
-    sum += i;
-    i++;
+while (a <= 20) {
+    sum += a;
+    a++;
 }
