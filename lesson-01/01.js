@@ -1,11 +1,17 @@
-// С помощью цикла while найдите сумму чисел от 1 до 20
-// Результат присвойте переменной sum
+/*
+* Создать программный код, который определяет, может ли пользователь получить доступ к ресурсу на основе его роли и наличия разрешений.
+* Полученное булево значение сохраните в переменной isAccess.
 
-// your code
-let sum = 0;
-let a = 1;
+* Условия доступа:
+* - Пользователь должен иметь статус администратора (isAdmin) или быть подтвержденным пользователем (isVerifiedUser)
+* - А также пользователь должен обладать специальным разрешением (hasSpecialPermission) или временным пропуском (hasTemporaryPass)
+*/
 
-while (a <= 20) {
-    sum += a;
-    a++;
-}
+// тестовые данные (значения можно менять)
+const isAdmin = false;
+const isVerifiedUser = true;
+const hasSpecialPermission = true;
+const hasTemporaryPass = false;
+
+let isAccess =
+  (isAdmin || isVerifiedUser) && (hasSpecialPermission || hasTemporaryPass);
