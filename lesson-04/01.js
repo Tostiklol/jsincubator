@@ -13,4 +13,15 @@
 includesElement([1, 2, 3], 2)  // должен вернуть `true`.
 */
 
-function includesElement() {}
+function includesElement(array, element) {
+
+    for (let i = 0; i < array.length; i++) {
+    // перебираем от первого до последнего элемента
+
+if (array[i] === element) {
+    // если нашли элемент
+    return true;
+}
+} 
+return false;
+}
