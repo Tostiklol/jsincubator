@@ -15,12 +15,14 @@ function truncate(str, maxLength) {
     return str;
   }
   
-  // Если строка уже содержит многоточие
-  if (str.indexOf("...") !== -1) {
-    // Просто обрезаем до maxLength символов
-    return str.substring(0, maxLength);
+  // Сначала обрезаем до maxLength
+  const truncated = str.substring(0, maxLength);
+  
+  // Проверяем, заканчивается ли ОБРЕЗАННАЯ строка на многоточие
+  if (truncated.endsWith("...")) {
+    return truncated; // уже содержит многоточие
   }
   
-  // Если многоточия нет, обрезаем и добавляем его
+  // Если не заканчивается, обрезаем до maxLength - 3 и добавляем многоточие
   return str.substring(0, maxLength - 3) + "...";
-} //lflflfdldld
+}
