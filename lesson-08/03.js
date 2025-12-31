@@ -14,11 +14,11 @@ function truncate(str, maxLength) {
     return str;
   }
   
-  // Для строк с уже существующим многоточием
-  if (str.includes("...") && str.length - 3 <= maxLength) {
-    return str.substring(0, maxLength);
+  // Если maxLength меньше или равно 3, просто возвращаем многоточие нужной длины
+  if (maxLength <= 3) {
+    return '...'.slice(0, maxLength);
   }
   
-  // Для строк без многоточия
-  return str.substring(0, maxLength - 3) + "...";
+  // Иначе обрезаем и добавляем многоточие
+  return str.slice(0, maxLength - 3) + '...';
 }
