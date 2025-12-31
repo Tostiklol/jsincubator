@@ -10,20 +10,20 @@
 */
 
 function truncate(str, maxLength) {
-
+  // Если строка короче или равна maxLength
   if (str.length <= maxLength) {
     return str;
   }
   
-
-  const truncated = str.slice(0, maxLength);
+  // Проверяем, содержит ли исходная строка многоточие в пределах maxLength
+  // Берем подстроку длиной maxLength
+  const possibleResult = str.substring(0, maxLength);
   
-  
-  if (truncated.endsWith("...")) {
-    return truncated;
+  // Если эта подстрока уже заканчивается на многоточие - возвращаем ее
+  if (possibleResult.endsWith("...")) {
+    return possibleResult;
   }
   
-
-  const charsForText = maxLength - 3;
-  return str.slice(0, charsForText) + "...";
+  // Если нет - обрезаем до maxLength - 3 и добавляем многоточие
+  return str.substring(0, maxLength - 3) + "...";
 }

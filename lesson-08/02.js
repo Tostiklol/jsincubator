@@ -5,15 +5,31 @@
 
 function isNumeric(str) {
     const trimmedStr = str.trim();
+    
     if (trimmedStr === '') {
         return false;
     }
     
+    // Пробуем преобразовать
     const num = Number(trimmedStr);
     
-    return !isNaN(num) && 
-           isFinite(num) && 
-           num.toString() === trimmedStr;
+    // Проверяем базовые условия
+    if (isNaN(num) || !isFinite(num)) {
+        return false;
+    }
+    
+    // Проверяем что вся строка - число
+    // Используем более строгую проверку
+    const parsed = parseFloat(trimmedStr);
+    
+    // Если parseFloat вернул NaN - это не число
+    if (isNaN(parsed)) {
+        return false;
+    }
+    
+    // Проверяем с помощью регулярного выражения
+    // Разрешает: цифры, точка, знак минуса/плюса, экспонента
+    return /^[-+]?\d*\.?\d+(?:[eE][-+]?\d+)?$/.test(trimmedStr);
 }
 
 // console.log(isNumeric("123")) // Ожидаемый результат: true
