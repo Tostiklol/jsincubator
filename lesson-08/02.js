@@ -4,7 +4,15 @@
  */
 
 function isNumeric(str) {
-  // your code
+    const trimmedStr = str.trim();
+    if (trimmedStr === '') {
+        return false;
+    }
+const num = parseFloat(trimmedStr);
+
+return !isNaN(num) && 
+           isFinite(num) && 
+           num.toString() === trimmedStr;
 }
 
 // console.log(isNumeric("123")) // Ожидаемый результат: true

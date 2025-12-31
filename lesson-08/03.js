@@ -10,5 +10,22 @@
 */
 
 function truncate(str, maxLength) {
-  // your code
+  console.log("Входные данные:", { str, maxLength, length: str.length });
+  
+  const strLength = str.length;
+  if (strLength <= maxLength) {
+    console.log("Короткая строка, возвращаю:", str);
+    return str;
+  }
+  
+  const charsToKeep = maxLength - 3;
+  console.log("charsToKeep:", charsToKeep);
+  
+  const truncatedPart = str.slice(0, charsToKeep);
+  console.log("truncatedPart:", truncatedPart);
+  
+  const result = truncatedPart + "...";
+  console.log("Результат:", result);
+  
+  return result;
 }
