@@ -10,22 +10,20 @@
 */
 
 function truncate(str, maxLength) {
-  console.log("Входные данные:", { str, maxLength, length: str.length });
-  
-  const strLength = str.length;
-  if (strLength <= maxLength) {
-    console.log("Короткая строка, возвращаю:", str);
+
+  if (str.length <= maxLength) {
     return str;
   }
   
-  const charsToKeep = maxLength - 3;
-  console.log("charsToKeep:", charsToKeep);
+
+  const truncated = str.slice(0, maxLength);
   
-  const truncatedPart = str.slice(0, charsToKeep);
-  console.log("truncatedPart:", truncatedPart);
   
-  const result = truncatedPart + "...";
-  console.log("Результат:", result);
+  if (truncated.endsWith("...")) {
+    return truncated;
+  }
   
-  return result;
+
+  const charsForText = maxLength - 3;
+  return str.slice(0, charsForText) + "...";
 }

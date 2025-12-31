@@ -8,9 +8,10 @@ function isNumeric(str) {
     if (trimmedStr === '') {
         return false;
     }
-const num = parseFloat(trimmedStr);
-
-return !isNaN(num) && 
+    
+    const num = Number(trimmedStr);
+    
+    return !isNaN(num) && 
            isFinite(num) && 
            num.toString() === trimmedStr;
 }
