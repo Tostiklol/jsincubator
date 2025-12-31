@@ -10,19 +10,15 @@
 */
 
 function truncate(str, maxLength) {
-  // Если строка короче или равна максимальной длине
   if (str.length <= maxLength) {
     return str;
   }
   
-  // Сначала обрезаем до maxLength
-  const truncated = str.substring(0, maxLength);
-  
-  // Проверяем, заканчивается ли ОБРЕЗАННАЯ строка на многоточие
-  if (truncated.endsWith("...")) {
-    return truncated; // уже содержит многоточие
+  // Для строк с уже существующим многоточием
+  if (str.includes("...") && str.length - 3 <= maxLength) {
+    return str.substring(0, maxLength);
   }
   
-  // Если не заканчивается, обрезаем до maxLength - 3 и добавляем многоточие
+  // Для строк без многоточия
   return str.substring(0, maxLength - 3) + "...";
 }
