@@ -14,11 +14,6 @@ function truncate(str, maxLength) {
     return str;
   }
   
-  // Если maxLength меньше или равно 3, просто возвращаем многоточие нужной длины
-  if (maxLength <= 3) {
-    return '...'.slice(0, maxLength);
-  }
-  
-  // Иначе обрезаем и добавляем многоточие
-  return str.slice(0, maxLength - 3) + '...';
+  // Используем специальный символ многоточия (один символ)
+  return str.slice(0, maxLength - 1) + '…';
 }
