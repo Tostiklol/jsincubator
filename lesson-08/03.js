@@ -10,10 +10,17 @@
 */
 
 function truncate(str, maxLength) {
+  // Если строка короче или равна максимальной длине, возвращаем её как есть
   if (str.length <= maxLength) {
     return str;
   }
   
-  // Используем специальный символ многоточия (один символ)
-  return str.slice(0, maxLength - 1) + '…';
+  // Если максимальная длина меньше или равна 3, просто обрезаем строку
+  // без добавления многоточия (или с ним, если maxLength >= 3)
+  if (maxLength <= 3) {
+    return str.slice(0, maxLength);
+  }
+  
+  // Обрезаем строку до maxLength - 3 и добавляем три точки
+  return str.slice(0, maxLength - 3) + '...';
 }
