@@ -68,73 +68,15 @@ clearCartButton.addEventListener('click', function () {
 })
 
 // Твой код:
-const PETS = [
-  { id: 'cat', title: '🐱' },
-  { id: 'dog', title: '🐶' },
-  { id: 'parrot', title: '🦜' },
-  { id: 'fish', title: '🐠' },
-  { id: 'spider', title: '🕷' },
-  { id: 'snake', title: '🐍' },
-  { id: 'hamster', title: '🐹' },
-  { id: 'turtle', title: '🐢' },
-  { id: 'chinchilla', title: '🦇' },
-  { id: 'hedgehog', title: '🦔' },
-  { id: 'rat', title: '🐀' },
-  { id: 'frog', title: '🐸' },
-]
-
-const cart = []
-
-const petShop = document.querySelector('.pet-shop')
-const cartList = document.getElementById('cart-list')
-const messageBox = document.getElementById('message-box')
-const clearCartButton = document.getElementById('clear-cart-button')
-
-// Рендерим кнопки для питомцев
-for (let i = 0; i < PETS.length; i++) {
-  const pet = PETS[i]
-
-  const petButtonElement = document.createElement('button')
-  petButtonElement.classList.add('pet')
-  petButtonElement.id = pet.id
-  petButtonElement.textContent = pet.title
-
-  petShop.append(petButtonElement)
-}
-
-// Обновляем отображение корзины
-function updateCartDisplay() {
-  cartList.innerHTML = ''
-
-  for (let i = 0; i < cart.length; i++) {
-    const petId = cart[i]
-    const pet = PETS.find((item) => item.id === petId)
-
-    const petLiElement = document.createElement('li')
-    petLiElement.classList.add('pet')
-    petLiElement.textContent = pet.title
-
-    cartList.append(petLiElement)
-  }
-}
-
-clearCartButton.addEventListener('click', function () {
-  cart.length = 0
-  updateCartDisplay()
-})
-
-// ================================
-// ТВОЙ КОД (исправленный)
-// ================================
 petShop.addEventListener('click', function (event) {
   const button = event.target.closest('button')
 
-  // Если клик был не по кнопке питомца — ничего не делаем
+  // Если клик был не по кнопке питомца
   if (!button) {
     return
   }
 
-  // Проверка ограничения корзины
+  // Проверяем ограничение на количество питомцев
   if (cart.length >= 3) {
     messageBox.textContent = 'Вы не можете добавить более 3 питомцев'
     return
